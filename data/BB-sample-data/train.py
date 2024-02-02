@@ -89,7 +89,7 @@ class CustomDataset(utils.Dataset):
         #   'size': 100202
         # }
         # We mostly care about the x and y coordinates of each region
-        annotations1 = json.load(open('/content/CAC/data/BB-sample-data/train-coco/annotations.json'))
+        annotations1 = json.load(open(os.path.join(dataset_dir,'annotations.json')))
         # print(annotations1)
         annotations = list(annotations1.values())  # don't need the dict keys
 
