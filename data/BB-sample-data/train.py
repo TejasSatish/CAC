@@ -107,7 +107,7 @@ class CustomDataset(utils.Dataset):
             polygons = [r['shape_attributes'] for r in a['regions']] 
             objects = [s['region_attributes']['names'] for s in a['regions']]
             print("objects:",objects)
-            name_dict = {"heart": 1}
+            name_dict = {"heart": 1,"calcium": 2}
 
             # key = tuple(name_dict)
             num_ids = [name_dict[a] for a in objects]
