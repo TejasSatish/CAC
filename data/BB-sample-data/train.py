@@ -42,7 +42,7 @@ class CustomConfig(Config):
     IMAGES_PER_GPU = 4
     
     # Number of classes (including background)
-    NUM_CLASSES = 1 + 1  # Background + Heart	
+    NUM_CLASSES = 1 + 2  # Background + heart + calcium	
 
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 5
