@@ -194,7 +194,7 @@ def train(model):
                 
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
-                epochs=250,
+                epochs=20,
                 layers='heads', #layers='all', 
                 augmentation = imgaug.augmenters.Sequential([ 
                 imgaug.augmenters.Fliplr(1), 
