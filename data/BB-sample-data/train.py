@@ -47,7 +47,7 @@ class CustomConfig(Config):
     NUM_CLASSES = 1 + 2  # Background + heart + calcium	
 
     # Number of training steps per epoch
-    STEPS_PER_EPOCH = 32
+    STEPS_PER_EPOCH = 5
 
     # Skip detections with < 90% confidence
     DETECTION_MIN_CONFIDENCE = 0.9
