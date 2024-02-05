@@ -12,6 +12,7 @@ import imgaug
 # Root directory of the project
 ROOT_DIR = "/content/Mask_RCNN"
 
+LOG_DIR="/content/drive/MyDrive/agath-capstone/BB-sample-data/log-folder"
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
 from mrcnn.config import Config
@@ -22,7 +23,7 @@ COCO_WEIGHTS_PATH = os.path.join(ROOT_DIR, "pretrained_coco_model")
 
 # Directory to save logs and model checkpoints, if not provided
 # through the command line argument --logs
-DEFAULT_LOGS_DIR = os.path.join(ROOT_DIR, "logs")
+DEFAULT_LOGS_DIR = os.path.join(LOG_DIR)
 
 
 
