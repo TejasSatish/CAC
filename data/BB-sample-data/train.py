@@ -110,7 +110,7 @@ class CustomDataset(utils.Dataset):
             objects = [s['region_attributes']['names'] for s in a['regions']]
             print("objects:",objects)
             #name_dict = {"heart": 1,"calcium": 2}
-            name_dict = {"heart": 1,"calcium": 2}
+            name_dict = {"heart": 1}
             # key = tuple(name_dict)
             num_ids = [name_dict[a] for a in objects]
      
