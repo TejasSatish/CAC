@@ -39,7 +39,7 @@ class CustomConfig(Config):
     
     # We use a GPU with 12GB memory, which can fit two images.
     # Adjust down if you use a smaller GPU.
-    IMAGES_PER_GPU = 2
+    IMAGES_PER_GPU = 4
     #IMAGE SIZE
     IMAGE_MIN_DIM = 512
     IMAGE_MAX_DIM = 512
@@ -47,7 +47,7 @@ class CustomConfig(Config):
     NUM_CLASSES = 1 + 2  # Background + heart + calcium	
 
     # Number of training steps per epoch
-    STEPS_PER_EPOCH = 5
+    STEPS_PER_EPOCH = 10
 
     # Skip detections with < 90% confidence
     DETECTION_MIN_CONFIDENCE = 0.9
