@@ -37,9 +37,9 @@ class CustomConfig(Config):
     # NUMBER OF GPUs to use. When using only a CPU, this needs to be set to 1.
     GPU_COUNT = 1
     
-    # We use a GPU with 12GB memory, which can fit two images.
+    # We use a GPU with 12GB memory, which can fit two 1024 x 1024 images.
     # Adjust down if you use a smaller GPU.
-    IMAGES_PER_GPU = 4
+    IMAGES_PER_GPU = 3
     #IMAGE SIZE
     IMAGE_MIN_DIM = 512
     IMAGE_MAX_DIM = 512
