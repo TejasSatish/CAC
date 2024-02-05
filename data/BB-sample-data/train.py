@@ -44,8 +44,8 @@ class CustomConfig(Config):
     IMAGE_MIN_DIM = 512
     IMAGE_MAX_DIM = 512
     # Number of classes (including background)
-    NUM_CLASSES = 1 + 2  # Background + heart + calcium	
-
+    #NUM_CLASSES = 1 + 2  # Background + heart + calcium	
+    NUM_CLASSES = 1 + 1  # Background + heart	
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 10
 
@@ -69,7 +69,7 @@ class CustomDataset(utils.Dataset):
       
         # Add classes. We have only one class to add.
         self.add_class("object", 1, "heart")
-        self.add_class("object", 2, "calcium")
+        #self.add_class("object", 2, "calcium")
 
 
      
@@ -109,8 +109,8 @@ class CustomDataset(utils.Dataset):
             polygons = [r['shape_attributes'] for r in a['regions']] 
             objects = [s['region_attributes']['names'] for s in a['regions']]
             print("objects:",objects)
+            #name_dict = {"heart": 1,"calcium": 2}
             name_dict = {"heart": 1,"calcium": 2}
-
             # key = tuple(name_dict)
             num_ids = [name_dict[a] for a in objects]
      
