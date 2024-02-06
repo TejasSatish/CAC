@@ -19,7 +19,7 @@ from mrcnn.config import Config
 from mrcnn import model as modellib, utils
 
 # Path to trained weights file
-COCO_WEIGHTS_PATH = os.path.join(ROOT_DIR, "pretrained_coco_model")
+COCO_WEIGHTS_PATH = os.path.join(LOG_DIR, "object20240205T1617","mask_rcnn_object_0011.h5")
 
 # Directory to save logs and model checkpoints, if not provided
 # through the command line argument --logs
