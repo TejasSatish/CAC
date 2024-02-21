@@ -40,13 +40,13 @@ class CustomConfig(Config):
     
     # We use a GPU with 12GB memory, which can fit two 1024 x 1024 images.
     # Adjust down if you use a smaller GPU.
-    IMAGES_PER_GPU = 3
+    IMAGES_PER_GPU = 5
     #IMAGE SIZE
     IMAGE_MIN_DIM = 512
     IMAGE_MAX_DIM = 512
     # Number of classes (including background)
     #NUM_CLASSES = 1 + 2  # Background + heart + calcium	
-    NUM_CLASSES = 1 + 1  # Background + heart	
+    NUM_CLASSES = 1 + 3  # Background + heart + calcium + exclude
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 10
 
@@ -70,8 +70,8 @@ class CustomDataset(utils.Dataset):
       
         # Add classes. We have only one class to add.
         self.add_class("object", 1, "heart")
-        #self.add_class("object", 2, "calcium")
-
+        self.add_class("object", 2, "calcium")
+	self.add_class("object", 3, "exclude")
 
      
         # Train or validation dataset?
@@ -108,10 +108,10 @@ class CustomDataset(utils.Dataset):
             # the outline of each object instance. There are stores in the
             # shape_attributes (see json format above)
             polygons = [r['shape_attributes'] for r in a['regions']] 
-            objects = [s['region_attributes']['names'] for s in a['regions']]
+            objects = [s['region_attributes']['name'] for s in a['regions']]
             print("objects:",objects)
             #name_dict = {"heart": 1,"calcium": 2}
-            name_dict = {"heart": 1}
+            name_dict = {"heart": 1,"calcium": 2, "exclude": 3}
             # key = tuple(name_dict)
             num_ids = [name_dict[a] for a in objects]
      
