@@ -175,12 +175,12 @@ def train(model):
     """Train the model."""
     # Training dataset.
     dataset_train = CustomDataset()
-    dataset_train.load_custom("/content/drive/MyDrive/amultrain/", "train")
+    dataset_train.load_custom("/content/drive/MyDrive/amul/", "train")
     dataset_train.prepare()
 
     # Validation dataset
     dataset_val = CustomDataset()
-    dataset_val.load_custom("/content/drive/MyDrive/amultest/", "val")
+    dataset_val.load_custom("/content/drive/MyDrive/amul/", "val")
     dataset_val.prepare()
 
     # *** This training schedule is an example. Update to your needs ***
