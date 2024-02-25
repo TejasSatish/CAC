@@ -40,7 +40,7 @@ class CustomConfig(Config):
     
     # We use a GPU with 12GB memory, which can fit two 1024 x 1024 images.
     # Adjust down if you use a smaller GPU.
-    IMAGES_PER_GPU = 5
+    IMAGES_PER_GPU = 3
     #IMAGE SIZE
     IMAGE_MIN_DIM = 512
     IMAGE_MAX_DIM = 512
