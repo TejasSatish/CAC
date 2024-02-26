@@ -45,8 +45,8 @@ class CustomConfig(Config):
     IMAGE_MIN_DIM = 512
     IMAGE_MAX_DIM = 512
     # Number of classes (including background)
-    NUM_CLASSES = 1 + 2  # Background + heart + calcium	
-    #NUM_CLASSES = 1 + 3  # Background + heart + calcium + exclude
+    #NUM_CLASSES = 1 + 2  # Background + heart + calcium	
+    NUM_CLASSES = 1 + 3  # Background + heart + calcium + exclude
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 10
 
@@ -71,6 +71,7 @@ class CustomDataset(utils.Dataset):
         # Add classes. We have only one class to add.
         self.add_class("object", 1, "heart")
         self.add_class("object", 2, "calcium")
+	self.add_class("object", 3, "exclude")
 
      
         # Train or validation dataset?
@@ -109,8 +110,8 @@ class CustomDataset(utils.Dataset):
             polygons = [r['shape_attributes'] for r in a['regions']] 
             objects = [s['region_attributes']['names'] for s in a['regions']]
             print("objects:",objects)
-            name_dict = {"heart": 1,"calcium": 2}
-            #name_dict = {"heart": 1,"calcium": 2, "exclude": 3}
+            #name_dict = {"heart": 1,"calcium": 2}
+            name_dict = {"heart": 1,"calcium": 2, "exclude": 3}
             # key = tuple(name_dict)
             num_ids = [name_dict[a] for a in objects]
      
@@ -175,12 +176,12 @@ def train(model):
     """Train the model."""
     # Training dataset.
     dataset_train = CustomDataset()
-    dataset_train.load_custom("/content/drive/MyDrive/amul/", "train")
+    dataset_train.load_custom("/content/drive/MyDrive/images/", "train")
     dataset_train.prepare()
 
     # Validation dataset
     dataset_val = CustomDataset()
-    dataset_val.load_custom("/content/drive/MyDrive/amul/", "val")
+    dataset_val.load_custom("/content/drive/MyDrive/images/", "val")
     dataset_val.prepare()
 
     # *** This training schedule is an example. Update to your needs ***
