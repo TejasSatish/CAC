@@ -71,7 +71,7 @@ class CustomDataset(utils.Dataset):
         # Add classes. We have only one class to add.
         self.add_class("object", 1, "heart")
         self.add_class("object", 2, "calcium")
-	self.add_class("object", 3, "exclude")
+        self.add_class("object", 3, "exclude")
 
      
         # Train or validation dataset?
