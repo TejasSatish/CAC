@@ -48,7 +48,7 @@ class CustomConfig(Config):
     #NUM_CLASSES = 1 + 2  # Background + heart + calcium	
     NUM_CLASSES = 1 + 3  # Background + heart + calcium + exclude
     # Number of training steps per epoch
-    STEPS_PER_EPOCH = 10
+    STEPS_PER_EPOCH = 16
 
     # Skip detections with < 90% confidence
     DETECTION_MIN_CONFIDENCE = 0.9
@@ -197,7 +197,7 @@ def train(model):
                 
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
-                epochs=20,
+                epochs=50,
                 layers='heads', #layers='all', 
                 augmentation = imgaug.augmenters.Sequential([ 
                 imgaug.augmenters.Fliplr(1), 
