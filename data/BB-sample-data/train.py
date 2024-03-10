@@ -19,8 +19,7 @@ from mrcnn.config import Config
 from mrcnn import model as modellib, utils
 
 # Path to trained weights file
-#/content/drive/MyDrive/agath-capstone/BB-sample-data/pretrained-models/heartBBmaskrcnn.h5
-COCO_WEIGHTS_PATH = os.path.join("")
+COCO_WEIGHTS_PATH = os.path.join("/content/drive/MyDrive/agath-capstone/BB-sample-data/pretrained-models/heartBBmaskrcnn.h5")
 
 # Directory to save logs and model checkpoints, if not provided
 # through the command line argument --logs
