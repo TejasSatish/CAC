@@ -19,7 +19,8 @@ from mrcnn.config import Config
 from mrcnn import model as modellib, utils
 
 # Path to trained weights file
-COCO_WEIGHTS_PATH = os.path.join("/content/drive/MyDrive/agath-capstone/BB-sample-data/pretrained-models/heartBBmaskrcnn.h5")
+#/content/drive/MyDrive/agath-capstone/BB-sample-data/pretrained-models/heartBBmaskrcnn.h5
+COCO_WEIGHTS_PATH = os.path.join("")
 
 # Directory to save logs and model checkpoints, if not provided
 # through the command line argument --logs
@@ -45,8 +46,8 @@ class CustomConfig(Config):
     IMAGE_MIN_DIM = 512
     IMAGE_MAX_DIM = 512
     # Number of classes (including background)
-    #NUM_CLASSES = 1 + 2  # Background + heart + calcium	
-    NUM_CLASSES = 1 + 3  # Background + heart + calcium + exclude
+    NUM_CLASSES = 1 + 2  # Background + heart + calcium	
+    #NUM_CLASSES = 1 + 3  # Background + heart + calcium + exclude
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 50
 
@@ -71,7 +72,7 @@ class CustomDataset(utils.Dataset):
         # Add classes. We have only one class to add.
         self.add_class("object", 1, "heart")
         self.add_class("object", 2, "calcium")
-        self.add_class("object", 3, "exclude")
+        #self.add_class("object", 3, "exclude")
 
      
         # Train or validation dataset?
@@ -110,8 +111,8 @@ class CustomDataset(utils.Dataset):
             polygons = [r['shape_attributes'] for r in a['regions']] 
             objects = [s['region_attributes']['names'] for s in a['regions']]
             print("objects:",objects)
-            #name_dict = {"heart": 1,"calcium": 2}
-            name_dict = {"heart": 1,"calcium": 2, "exclude": 3}
+            name_dict = {"heart": 1,"calcium": 2}
+            #name_dict = {"heart": 1,"calcium": 2, "exclude": 3}
             # key = tuple(name_dict)
             num_ids = [name_dict[a] for a in objects]
      
